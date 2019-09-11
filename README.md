@@ -5,7 +5,20 @@
 https://gfycat.com/bowedaggressivefritillarybutterfly
 
 ## Instructions (en)
+1. Show Mixamo example
+    1. Trim
+    1. In place
+    1. No skin
 1. Download all assets
+    1. Character skeletal mesh
+    1. Movement animations
+        1. Idle
+        1. Walk
+        1. Run
+    1. Attack animations
+        1. Slash
+        1. Kick
+        1. Throw
 
 ### Use Kunoichi character
 1. Import skeletal mesh
