@@ -144,6 +144,6 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
     1. Create new upper body slot in throw montage and use it
     1. Update AnimGraph to use pose cache and layed blend per bone
         1. Use Spine as the bone name for the layer
-1. Add anim notify to throw
-    1. Use it to spawn a shuriken
-1. Adjust camera angle to improve throw
+    1. Add anim notify to throw
+        1. Use it to spawn a shuriken
+        1. Adjust camera angle to improve throw
