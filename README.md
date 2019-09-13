@@ -150,19 +150,19 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
 
 ## Instructions (fr)
 1. Montrer l'exemple Mixamo
-    1. Trim
-    1. Sur place
-    1. Pas de "skin"
+    1. Trim
+    1. Sur place
+    1. Pas de skin
 1. Télécharger tous les assets
-    1. Mesh squelettique du personnage
-    1. Animations de mouvement
-        1. Idle
-        1. Walk
-        1. Run
-    1. Animations d'attaque
-        1. Slash
-        1. Kick
-        1. Throw
+    1. Mesh squelettique du personnage
+    1. Animations de mouvement
+        1. Idle
+        1. Walk
+        1. Run
+    1. Animations d'attaque
+        1. Slash
+        1. Kick
+        1. Throw
 
 ### Utilisez le caractère Kunoichi
 1. Importer le mesh squelettique
@@ -183,35 +183,35 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
 1. Renommez tous les assets
 1. Organiser dans les dossiers Combat et Mouvement
 1. Préparer un blend space
-    1. Créer un blend space
-    1. Changer le nom de l’axe horizontal: Right
-    1. Changer le nom de l’axe vertical: Forward
-    1. Modifiez toutes les valeurs en -600, 600
-    1. Changer la division de la grille en 12
-    1. Ajouter toutes les animations de mouvement dans le blend space
+    1. Créer un blend space
+    1. Changer le nom de l’axe horizontal: Right
+    1. Changer le nom de l’axe vertical: Forward
+    1. Modifiez toutes les valeurs en -600, 600
+    1. Changer la division de la grille en 12
+    1. Ajouter toutes les animations de mouvement dans le blend space
 1. Créer un plan d’animation avec la classe parente AnimInstance et le squelette SKEL_Kunoichi
 1. Aller à la vue AnimGraph
 1. Ajouter une nouvelle state machine (mouvement)
 1. Connectez le state machine à la pose finale de l’animation
 1. Ajouter un nouvel état: Idle_Walk_Run
-    1. Ajouter le blend space BS_Kunoichi
-    1. Promouvoir les variables Right et Forward
+    1. Ajouter le blend space BS_Kunoichi
+    1. Promouvoir les variables Right et Forward
 1. Allez au Event Graph
-    1. Utilisez le nœud Begin Play pour enregistrer la référence à BP_Kunoichi.
-    1. Obtenez les vecteurs pertinents de BP_Kunoichi et utilisez le produit scalaire pour définir les valeurs correctes pour les variables Droite et Suivante.
+    1. Utilisez le nœud Begin Play pour enregistrer la référence à BP_Kunoichi.
+    1. Obtenez les vecteurs pertinents de BP_Kunoichi et utilisez le produit scalaire pour définir les valeurs correctes pour les variables Droite et Suivante.
 1. Affecter ABP_Kunoichi à une classe d'animation dans BP_Kunoichi
 1. Test PIE
 
 ### Integrate jump
 1. Ajouter et configurer des états: Jump_Start, Jump_Loop, Jump_End
 1. Configurez la transition Idle_Walk_Run -> Jump_Start
-    1. Promouvoir la variable IsInAir
+    1. Promouvoir la variable IsInAir
 1. Configurer Jump_Start -> transition Jump_Loop
-    1. Utiliser le nœud du rapport de temps actuel
+    1. Utiliser le nœud du rapport de temps actuel
 1. Configurez la transition Jump_Loop -> Jump_End
-    1. Utiliser IsInAir bool
+    1. Utiliser IsInAir bool
 1. Configurez la transition Jump_End -> Idle_Walk_Run
-    1. Utiliser le nœud du rapport de temps actuel
+    1. Utiliser le nœud du rapport de temps actuel
 1. Testez en utilisant des détails variables
 1. Modifier le graphique d’événement pour définir la variable IsInAir à l’aide du noeud IsFalling
 1. Test PIE
@@ -226,10 +226,10 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
 1. Importer le mesh et les textures d'épée
 1. Renommer les assets
 1. Réparer le matériel
-    1. Utiliser un noeud de TextureSample
+    1. Utiliser un noeud de TextureSample
 1. Ajouter des sockets à Kunoichi
-    1. Épaule droite
-    1. Main droite
+    1. Épaule droite
+    1. Main droite
 1. Ajouter des composants de scène à de nouveaux sockets
 1. Ajouter un mesh statique pour l’épée et ajuster les composants de la scène
 1. Ajuste l'échelle de l'arme
@@ -241,7 +241,7 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
 1. Remplacer le délai avec anim notify
 1. Créer un événement personnalisé ReadyWeapon
 1. Créez AnimNotify_ReadyWeapon dans ABP_Kunoichi
-    1. Connectez-le à l'événement Ready Weapon
+    1. Connectez-le à l'événement Ready Weapon
 
 ### Créer le mannequin cible
 1. Créer un acteur BP_Dummy
@@ -256,38 +256,38 @@ https://gfycat.com/bowedaggressivefritillarybutterfly
 1. Test PIE
 1. Ajoutez CanAttackHit bool à BP_Kunoichi et définissez-le sur true au début de l'attaque.
 1. Dans BP_Dummy, acteur hit pour BP_Kunoichi et intégration de la condition de hit
-    1. Utilisez le noeud AND pour vérifier également IsAttacking
+    1. Utilisez le noeud AND pour vérifier également IsAttacking
 
 ### Améliorer l'effet de frappe factice
 1. Créer un nouveau matériau M_Dummy
-    1. Utilisez constant3vector
-    1. Utiliser interpoler linéaire
-    1. Utiliser le paramètre scalaire
+    1. Utilisez constant3vector
+    1. Utiliser interpoler linéaire
+    1. Utiliser le paramètre scalaire
 1. Placez le matériel dans le mannequin
 1. Créer une instance de matériau dynamique dans un script de construction
-    1. Promouvoir le matériel
+    1. Promouvoir le matériel
 1. Essayez de définir la valeur dans le script de construction et de tester PIE, puis annulez
 1. Ajoutez la variable float HitValue dans BP_Dummy et utilisez-la pour modifier le paramètre scalaire.
 1. Augmenter la vitesse en multipliant par constante
 
 ### Supplémentaire
 1. Créer un combo de kick
-    1. Créer un montage de kick
-    1. Ajoutez bool pour déterminer quelle attaque utiliser (slash ou kick)
-        1. Utilisez le nœud de sélection pour sélectionner le montage.
-        1. Ajouter un autre collisionneur de boîte pour le coup
-    1. Activer et désactiver les collisionneurs corrects en modifiant les préréglages de collision
+    1. Créer un montage de kick
+    1. Ajoutez bool pour déterminer quelle attaque utiliser (slash ou kick)
+        1. Utilisez le nœud de sélection pour sélectionner le montage.
+        1. Ajouter un autre collisionneur de boîte pour le coup
+    1. Activer et désactiver les collisionneurs corrects en modifiant les préréglages de collision
 1. Créer un projectile shuriken
-    1. Importer et renommer des actifs
-    1. Améliorer le matériel de shuriken avec le noeud de Fresnel
-    1. Créer BP_Shuriken
-    1. Ajouter un maillage statique, un collisionneur de boîtes et un composant projectile
+    1. Importer et renommer des actifs
+    1. Améliorer le matériel de shuriken avec le noeud de Fresnel
+    1. Créer BP_Shuriken
+    1. Ajouter un maillage statique, un collisionneur de boîtes et un composant projectile
 1. Créer un lancer de shuriken
-    1. Créer un montage de projection
-    1. Ajouter une liaison d'entrée
-    1. Créez une nouvelle fente pour le haut du corps dans le montage de projection et utilisez-la.
-    1. Mettez à jour AnimGraph pour utiliser le cache de pose et le mélange pondéré par os.
-        1. Utilisez Spine comme nom d'os pour le calque
-    1. Ajouter anim notify à jeter
-        1. Utilisez-le pour engendrer un shuriken
-        1. Ajustez l'angle de la caméra pour améliorer la projection
+    1. Créer un montage de projection
+    1. Ajouter une liaison d'entrée
+    1. Créez une nouvelle fente pour le haut du corps dans le montage de projection et utilisez-la.
+    1. Mettez à jour AnimGraph pour utiliser le cache de pose et le mélange pondéré par os.
+        1. Utilisez Spine comme nom d'os pour le calque
+    1. Ajouter anim notify à jeter
+        1. Utilisez-le pour engendrer un shuriken
+        1. Ajustez l'angle de la caméra pour améliorer la projection
